@@ -1,0 +1,51 @@
+<script>
+    var t = [];     
+function add() { 
+    var s1 = document.getElementById('s').value;
+    var t1 = document.getElementById('t1').value;
+    if(s1 == "text")
+    {
+    var t2 = document.getElementById('t2').value;
+    }
+    else if (s1=="Number")
+    {
+        var t2 =parseInt(document.getElementById('t2').value);
+    }
+    else if (s1=="bool")
+    {
+          if(document.getElementById('t2').value == "true")
+           {
+              var t2 = Boolean(1);
+           }else{var t2 = Boolean(0)}
+    }
+    t.push({key:t1, value:t2});
+    render()
+}
+
+function render() {
+  var html = '';
+  console.log(t);
+  t.forEach(function(element) {
+    html += element['key'] +' = ' + element['value'] + '<br/>';
+  })
+  document.getElementById('p1').innerHTML = html;
+}
+</script>
+
+
+<input type="text" id="t1" /> 
+<select id = "s"> 
+  <option value="bool">Bool</option>
+  <option value="text">text</option>
+  <option value="Number">Number</option>
+</select>
+
+<input type="text" id="t2" />
+
+
+
+
+ <button id="b1" onclick="add()">Push</button> 
+ <p id="p1">
+ </p>
+
