@@ -30,6 +30,26 @@ function render() {
   })
   document.getElementById('p1').innerHTML = html;
 }
+
+function Verify()
+{
+  switch(document.getElementById('s').value) {
+    case "Number":
+    if(parseInt(document.getElementById('t2').value)== NaN)
+    {
+      document.getElementById('p1').innerHTML = "Error Numero no aceptado";
+    }else{add()}
+        break;
+    case "bool":
+        if(document.getElementById('t2').value != "true" && document.getElementById('t2').value != "false")
+        {
+          document.getElementById('p1').innerHTML = "Error Ingreso no aceptado"
+        }else{add()}
+        break;
+    default:
+    add()
+}
+}
 </script>
 
 
@@ -45,7 +65,7 @@ function render() {
 
 
 
- <button id="b1" onclick="add()">Push</button> 
+ <button id="b1" onclick="Verify()">Push</button> 
  <p id="p1">
  </p>
 
