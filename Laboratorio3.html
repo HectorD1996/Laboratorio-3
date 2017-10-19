@@ -35,7 +35,8 @@ function Verify()
 {
   switch(document.getElementById('s').value) {
     case "Number":
-    if(parseInt(document.getElementById('t2').value)== NaN)
+    var i = parseInt(document.getElementById('t2').value)
+    if(isNaN(i))
     {
       document.getElementById('p1').innerHTML = "Error Numero no aceptado";
     }else{add()}
@@ -49,6 +50,26 @@ function Verify()
     default:
     add()
 }
+}
+
+function Json()
+
+{
+  var myJSON = JSON.stringify(t);
+  document.getElementById("demo").innerHTML = myJSON;
+}
+
+function XML()
+{
+  var  parser, xmlDoc;
+
+
+
+parser = new DOMParser();
+xmlDoc = parser.parseFromString(t,"text/xml");
+
+document.getElementById("demo").innerHTML =
+xmlDoc.getElementsByTagName("title")[0].childNodes[0].nodeValue;
 }
 </script>
 
@@ -66,6 +87,9 @@ function Verify()
 
 
  <button id="b1" onclick="Verify()">Push</button> 
+ <button id="b1" onclick="Json()">Mostrar informacion Como jSON</button> 
+ <button id="b1" onclick="XML()">Mostrar informacion Como XML</button> 
  <p id="p1">
+    <p id="demo"></p>
  </p>
 
