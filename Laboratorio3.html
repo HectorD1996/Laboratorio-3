@@ -1,3 +1,4 @@
+<script src="Json2xml.js"></script>
 <script>
     var t = [];     
 function add() { 
@@ -61,15 +62,9 @@ function Json()
 
 function XML()
 {
-  var  parser, xmlDoc;
-
-
-
-parser = new DOMParser();
-xmlDoc = parser.parseFromString(t,"text/xml");
-
-document.getElementById("demo").innerHTML =
-xmlDoc.getElementsByTagName("title")[0].childNodes[0].nodeValue;
+  var xmlDoc;
+  xmlDoc = json2xml(t,"-")
+  document.getElementById("demo").innerHTML = xmlDoc;
 }
 </script>
 
